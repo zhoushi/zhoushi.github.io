@@ -77,6 +77,85 @@
 
    
     
+    <article class="post-expand pattern" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/16/Observer/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="周世贤" target="_blank" itemprop="author">周世贤</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-16T14:46:31.953Z" itemprop="datePublished"> 发表于 2016-05-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到<br>通知并自动更新</p>
+<h2 id="UML图和详细介绍"><a href="#UML图和详细介绍" class="headerlink" title="UML图和详细介绍"></a>UML图和详细介绍</h2><h1 id="自定义方式"><a href="#自定义方式" class="headerlink" title="自定义方式"></a>自定义方式</h1><p> <img src="./etc/observer_1.png" alt="alt text" title="Observer"></p>
+<ul>
+<li>通过 Weather主题接口中的addObserver注册为观察者</li>
+<li><p>其中WeatherType为具体的天气类型<br>public enum WeatherType {</p>
+<p>SUNNY, RAINY, WINDY, COLD;</p>
+<p>@Override<br>public String toString() {<br>  return this.name().toLowerCase();<br>}<br>}</p>
+</li>
+<li><p>WeatherObserver具体的观察者可以是实现此接口的任意类。</p>
+</li>
+</ul>
+<p>public interface WeatherObserver {</p>
+<p>  /**</p>
+<ul>
+<li>更新</li>
+<li>@param currentWeather<br>*/<br>void update(WeatherType currentWeather);</li>
+</ul>
+<p>}</p>
+<h1 id="通过java中Observer类库实现"><a href="#通过java中Observer类库实现" class="headerlink" title="通过java中Observer类库实现"></a>通过java中Observer类库实现</h1><p>public abstract class Observable<s extends="" observable<s,="" o,="" a="">, O extends Observer<s, o,="" a="">, A&gt; {</s,></s></p>
+<p>  protected List<o> observers;</o></p>
+<p>  public Observable() {<br>    this.observers = new CopyOnWriteArrayList&lt;&gt;();<br>  }</p>
+<p>  public void addObserver(O observer) {<br>    this.observers.add(observer);<br>  }</p>
+<p>  public void removeObserver(O observer) {<br>    this.observers.remove(observer);<br>  }</p>
+<p>  /**</p>
+<ul>
+<li>Notify observers<br>*/<br>@SuppressWarnings(“unchecked”)<br>public void notifyObservers(A argument) {<br>for (O observer : observers) {<br> observer.update((S) this, argument);<br>}<br>}<br>}</li>
+</ul>
+<ul>
+<li>在java中还有很多地方用到了观察者模式，比如在IO中,javaBeans，其中观察者模式在对象之间定义<br>一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象都会收到通知，并自动更新</li>
+</ul>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
     <article class="post-expand post" itemprop="articleBody"> 
         <header class="article-info clearfix">
   <h1 itemprop="name">
