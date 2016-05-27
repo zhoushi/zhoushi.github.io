@@ -11,15 +11,36 @@
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
+    <meta name="description" content="layout: patterntitle: Model-View-Controllerfolder: model-view-controllercategories: Presentation Tiertags:
+
+Java
+Difficulty-Intermediate
+
+
+总结Separate the user interface into three interconnected comp">
+<meta property="og:type" content="article">
 <meta property="og:title" content="今日来打鱼">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/05/27/mvc/index.html">
 <meta property="og:site_name" content="今日来打鱼">
-<meta property="og:description">
+<meta property="og:description" content="layout: patterntitle: Model-View-Controllerfolder: model-view-controllercategories: Presentation Tiertags:
+
+Java
+Difficulty-Intermediate
+
+
+总结Separate the user interface into three interconnected comp">
+<meta property="og:image" content="http://yoursite.com/../../images/model-view-controller.png">
+<meta property="og:updated_time" content="2016-05-27T14:15:52.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="今日来打鱼">
-<meta name="twitter:description">
+<meta name="twitter:description" content="layout: patterntitle: Model-View-Controllerfolder: model-view-controllercategories: Presentation Tiertags:
+
+Java
+Difficulty-Intermediate
+
+
+总结Separate the user interface into three interconnected comp">
+<meta name="twitter:image" content="http://yoursite.com/../../images/model-view-controller.png">
 
     
     <link rel="alternative" href="/atom.xml" title="今日来打鱼" type="application/atom+xml">
@@ -73,12 +94,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/05/27/mvc/" title="" itemprop="url"></a>
@@ -92,9 +111,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <hr>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<hr>
 <p>layout: pattern<br>title: Model-View-Controller<br>folder: model-view-controller<br>categories: Presentation Tier<br>tags:</p>
 <ul>
 <li>Java</li>
@@ -103,14 +129,9 @@
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Separate the user interface into three interconnected components:<br>the model, the view and the controller. Let the model manage the data, the view<br>display the data and the controller mediate updating the data and redrawing the<br>display.</p>
 <p><img src="../../images/model-view-controller.png" alt="alt text" title="Model-View-Controller"></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -118,202 +139,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/05/27/mvc/" data-title="今日来打鱼" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand pattern" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/05/16/Observer/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="周世贤" target="_blank" itemprop="author">周世贤</a>
-		
-  <p class="article-time">
-    <time datetime="2016-05-16T14:46:31.953Z" itemprop="datePublished"> 发表于 2016-05-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到<br>通知并自动更新</p>
-<h2 id="UML图和详细介绍"><a href="#UML图和详细介绍" class="headerlink" title="UML图和详细介绍"></a>UML图和详细介绍</h2><h1 id="自定义方式"><a href="#自定义方式" class="headerlink" title="自定义方式"></a>自定义方式</h1><p> <img src="./etc/observer_1.png" alt="alt text" title="Observer"></p>
-<ul>
-<li>通过 Weather主题接口中的addObserver注册为观察者</li>
-<li><p>其中WeatherType为具体的天气类型<br>public enum WeatherType {</p>
-<p>SUNNY, RAINY, WINDY, COLD;</p>
-<p>@Override<br>public String toString() {<br>  return this.name().toLowerCase();<br>}<br>}</p>
-</li>
-<li><p>WeatherObserver具体的观察者可以是实现此接口的任意类。</p>
-</li>
-</ul>
-<p>public interface WeatherObserver {</p>
-<p>  /**</p>
-<ul>
-<li>更新</li>
-<li>@param currentWeather<br>*/<br>void update(WeatherType currentWeather);</li>
-</ul>
-<p>}</p>
-<h1 id="通过java中Observer类库实现"><a href="#通过java中Observer类库实现" class="headerlink" title="通过java中Observer类库实现"></a>通过java中Observer类库实现</h1><p>public abstract class Observable<s extends="" observable<s,="" o,="" a="">, O extends Observer<s, o,="" a="">, A&gt; {</s,></s></p>
-<p>  protected List<o> observers;</o></p>
-<p>  public Observable() {<br>    this.observers = new CopyOnWriteArrayList&lt;&gt;();<br>  }</p>
-<p>  public void addObserver(O observer) {<br>    this.observers.add(observer);<br>  }</p>
-<p>  public void removeObserver(O observer) {<br>    this.observers.remove(observer);<br>  }</p>
-<p>  /**</p>
-<ul>
-<li>Notify observers<br>*/<br>@SuppressWarnings(“unchecked”)<br>public void notifyObservers(A argument) {<br>for (O observer : observers) {<br> observer.update((S) this, argument);<br>}<br>}<br>}</li>
-</ul>
-<ul>
-<li>在java中还有很多地方用到了观察者模式，比如在IO中,javaBeans，其中观察者模式在对象之间定义<br>一对多的依赖，这样一来，当一个对象改变状态，依赖它的对象都会收到通知，并自动更新</li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/05/16/Observer/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/04/github上的maven开源项目/" title="github上的maven开源项目" itemprop="url">github上的maven开源项目</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="周世贤" target="_blank" itemprop="author">周世贤</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-04T14:15:36.000Z" itemprop="datePublished"> 发表于 2016-03-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="https://github.com/sxyx2008/maven-framework-project" target="_blank" rel="external">https://github.com/sxyx2008/maven-framework-project</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/04/My-New-Post/" title="My New Post" itemprop="url">My New Post</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="周世贤" target="_blank" itemprop="author">周世贤</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-04T08:11:11.000Z" itemprop="datePublished"> 发表于 2016-03-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -457,12 +319,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -533,4 +472,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
